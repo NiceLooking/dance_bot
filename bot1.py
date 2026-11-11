@@ -1,5 +1,6 @@
 import logging
 import asyncio
+import os
 from aiogram import Bot, Dispatcher, types, F
 from aiogram.filters import CommandStart
 from aiogram.fsm.state import State, StatesGroup
@@ -12,8 +13,16 @@ from aiogram.types import (
 )
 
 # ----------------- НАСТРОЙКИ -----------------
-BOT_TOKEN = "8634620843:AAHGdbsJNWlntugEKqSuh49S7yY0Wx2zWM0"
-ADMIN_ID = 627903959
+# Берем токен и ID админа из переменных окружения (GitHub Secrets)
+BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
+ADMIN_ID = int(os.getenv("TELEGRAM_ADMIN_ID", "0")) # Если ID нет, будет 0
+
+if not BOT_TOKEN:
+    raise ValueError("Токен не найден! Добавьте TELEGRAM_BOT_TOKEN в секреты репозитория.")
+
+if ADMIN_ID == 0:
+    logging.warning("ADMIN_ID не задан! Анкеты не будут отправляться.")
+
 WEBAPP_URL = "https://nicelooking.github.io/zenith-widget/"   # ← замените на свою ссылку
 SITE_URL = "https://nicelooking.github.io/orinsis-site/"
 # ---------------------------------------------
