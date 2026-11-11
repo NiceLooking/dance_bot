@@ -12,7 +12,7 @@ from aiogram.types import (
 )
 
 # ----------------- НАСТРОЙКИ -----------------
-BOT_TOKEN = "8634620843:AAEtjJI3CIk1bgvTaQsvZ8BM4NS1ZPT_M04"
+BOT_TOKEN = "8634620843:AAHGdbsJNWlntugEKqSuh49S7yY0Wx2zWM0"
 ADMIN_ID = 627903959
 WEBAPP_URL = "https://nicelooking.github.io/zenith-widget/"   # ← замените на свою ссылку
 SITE_URL = "https://nicelooking.github.io/orinsis-site/"
